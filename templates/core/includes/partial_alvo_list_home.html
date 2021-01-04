@@ -1,0 +1,22 @@
+{% for alvo in alvo %}
+<tr>
+  <td>{{ alvo.id }}</td>
+
+  <td>{{ alvo.nome_alvo }}</td>
+  <td>{{ alvo.lat }}</td>
+  <td>{{ alvo.lon }}</td>
+  <td>{{ alvo.data_expiracao }}</td>
+  <td style="width: 150px">
+    <button type="button" class="btn btn-warning btn-sm js-update-alvo" data-url="{% url 'core:alvo_update' alvo.id %}"> <span class="glyphicon glyphicon-pencil"></span> Editar</button>
+    <button type="button"
+            class="btn btn-danger btn-sm js-delete-alvo"
+            data-url="{% url 'core:alvo_delete' alvo.id %}">
+      <span class="glyphicon glyphicon-trash"></span> Eliminar
+    </button>
+  </td>
+</tr>
+{% empty %}
+<tr>
+  <td colspan="8" class="text-center bg-warning">Nenhum alvo</td>
+</tr>
+{% endfor %}

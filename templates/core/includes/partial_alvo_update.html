@@ -1,0 +1,80 @@
+<form method="post" action="{% url 'core:alvo_update' form.instance.pk %}" class="js-alvo-update-form">
+  {% csrf_token %}
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Editar alvo</h4>
+  </div>
+  <div class="modal-body">
+    {% include 'core/includes/partial_alvo_form.html' %}
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary">
+      <span class="glyphicon glyphicon-edit"></span>
+
+      Atualizar Alvo</button>
+ 
+    <!--<button type="button"
+    class="btn btn-danger btn-sm js-delete-alvo"
+    data-url="#myModal2"> Eliminar Alvo</button>-->
+
+   <!-- <a data-toggle="modal"  href="#myModal2" class="btn btn-danger">
+      <span class="glyphicon glyphicon-trash"></span>
+
+       Eliminar Alvo
+      
+    </a>-->
+
+    
+    
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+  </div>
+</form>
+
+
+<div class="modal" id="myModal2" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <div class="modal-body">
+
+        <form method="post" action="{% url 'core:alvo_delete' form.instance.pk %}" class="js-alvo-delete-form">
+          {% csrf_token %}
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">Confirmar operação</h4>
+          </div>
+          <div class="modal-body">
+            <p class="lead">Deseja eliminar o alvo <strong>{{ form.instance.nome_alvo }}</strong>?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit"  class="btn btn-danger">Eliminar alvo</button>
+          </div>
+        </form>
+
+      
+      
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+
+var originalModal = $('#myModal2').clone();
+$(document).on('#myModal2', 'hidden.bs.modal', function () {
+    $('#myModal2').remove();
+    var myClone = originalModal.clone();
+    $('body').append(myClone);
+});
+
+
+</script>

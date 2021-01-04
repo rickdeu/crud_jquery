@@ -1,0 +1,69 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'core/js/books.js' %}"></script>
+  
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">CRUD JQUERY</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-alvo" data-url="{% url 'core:alvo_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      Novo
+    </button>
+  </p>
+
+  
+  <section>
+    <div class="row">
+        <div class="col-xl-12">
+          
+  <table class="table" id="alvo-table">
+    <thead>
+      <tr>
+        <th>#</th>
+
+        <th>Nome do alvo</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Data de expiração</th>
+    
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+  
+      {% include 'core/includes/partial_alvo_list_home.html' %}
+
+
+
+    </tbody>
+  </table>
+        </div>
+  </section>
+
+
+  <!--<div class="modal fade" id="modal-alvo" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>-->
+
+  <div class="modal" id="modal-alvo">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+       
+        </div>
+      </div>
+  </div>
+
+
+
+  
+{% endblock %}
