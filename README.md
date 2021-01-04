@@ -15,6 +15,6 @@ DJANGO JQUERY - BASIC CRUD APPLICATION
  <h3>HOME PAGE - LIST</h3>
 
   <div align="center">
-    <img src="screen/list_crud.png" width="300px" height="300px"</img> 
+    <img src="screen/list_crud.png" width="100%" height="300px"</img> 
 </div>
 
